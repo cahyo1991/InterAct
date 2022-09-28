@@ -1,0 +1,58 @@
+delimiter $$
+
+CREATE DEFINER=`remote`@`%` PROCEDURE `GetFinalRankDAP`(mSessionID int)
+BEGIN
+
+DECLARE mPollID int;
+DECLARE CountQuestion int;
+DECLARE Counter int;
+
+CREATE TEMPORARY TABLE FinalRank
+(
+Rank int,
+UserID int,
+TimeStamp varchar(50),
+ChoiceID int,
+CorrectAnswer int,
+PollID int,
+Status int
+);
+
+
+set CountQuestion = (select count(PollID) as count from tmaspoll where SessionID = mSessionID);
+set Counter = 1;
+
+
+WHILE (Counter <= CountQuestion+1) DO
+
+	set @RowNumber = 0;
+	set mPollID = (select PollID from (select  (@RowNumber:=@RowNumber + 1) AS RowNumber,PollID from tmasPoll where SessionID = mSessionID) as q where RowNumber = Counter);
+    
+    set @RowNumber2 = 0;
+	insert into FinalRank (Rank,UserID,TimeStamp,ChoiceID,CorrectAnswer,PollID,Status)
+	SELECT 11-(@RowNumber2 := @RowNumber2 + 1) as Rank,pr.UserID , pr.Timestamp ,pr.ChoiceID as ChoiceID, p.ChoiceID as CorrectAnswer, p.PollID, 
+	case when pr.ChoiceID = p.ChoiceID then 1 else 0 end as Status FROM ttrnpollresponse pr 
+	LEFT JOIN tmaspoll p ON pr.PollID = p.PollID 
+    CROSS JOIN (SELECT @RowNumber2 := 0) AS dummy
+    WHERE p.PollID = mPollID order by status desc,Timestamp asc;
+	set Counter = Counter+1;
+
+END WHILE;
+
+set @RowNumber3 = 0;
+select @RowNumber3 := @RowNumber3 + 1 as FinalRank, UserID,UserName,RawScore from
+(
+select fr.UserID,u.UserName,
+(Sum(Rank)/(CountQuestion*10))*100 as RawScore 
+from FinalRank fr
+left join tmasuser u on fr.UserID = u.UserID
+CROSS JOIN (SELECT @RowNumber3 := 0) AS dummy
+
+group by fr.UserID,u.UserName
+order by RawScore desc) as bb;
+
+
+drop table FinalRank;
+
+END$$
+

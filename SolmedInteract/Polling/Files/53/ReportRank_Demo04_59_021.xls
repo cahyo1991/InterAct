@@ -1,0 +1,176 @@
+ ReportRank_Demo04_59_02  <h2>Interact Rank Chart</h2>
+ <b>Session : Demo</b> <br>
+ <b>Schedule :      Nov 10, 07:10 pm - 07:30 pm </b> <br>
+ <b>Venue : Hotel Griya Persada Bandungan , Semarang </b>
+
+ <table border="1" width="50%">
+      <thead>
+ 
+           <tr>
+ 
+                <th width="20%">Username</th>
+ 
+                <th width="25%">Score</th>
+ 
+                <th width="25%">Rank</th>
+ 
+           </tr>
+ 
+      </thead>
+ 
+      <tbody>
+ 
+       
+ 
+           <tr>
+            <tr>
+          <td> Freddy  Panjaitan  </td>
+          <td> 20 </td>
+          <td> 1 </td>
+        </tr>
+              <tr>
+          <td> Rini Bachtiar </td>
+          <td> 19 </td>
+          <td> 2 </td>
+        </tr>
+              <tr>
+          <td> Bona Adhista </td>
+          <td> 18 </td>
+          <td> 3 </td>
+        </tr>
+              <tr>
+          <td> Fahriza Utama </td>
+          <td> 17 </td>
+          <td> 4 </td>
+        </tr>
+              <tr>
+          <td> Edi Saputra </td>
+          <td> 16 </td>
+          <td> 5 </td>
+        </tr>
+              <tr>
+          <td> Mirsyam Ratri Wiratmoko </td>
+          <td> 15 </td>
+          <td> 6 </td>
+        </tr>
+              <tr>
+          <td> Tri Prabowo </td>
+          <td> 14 </td>
+          <td> 7 </td>
+        </tr>
+              <tr>
+          <td> sari widiyastuti </td>
+          <td> 13 </td>
+          <td> 8 </td>
+        </tr>
+              <tr>
+          <td> Mohamad Jasin Jachja </td>
+          <td> 12 </td>
+          <td> 9 </td>
+        </tr>
+              <tr>
+          <td> Nenny Agustanti </td>
+          <td> 11 </td>
+          <td> 10 </td>
+        </tr>
+              <tr>
+          <td> Anggraini Widjajakusuma </td>
+          <td> 10 </td>
+          <td> 11 </td>
+        </tr>
+              <tr>
+          <td> Lukmana Lokarjana </td>
+          <td> 10 </td>
+          <td> 12 </td>
+        </tr>
+              <tr>
+          <td> Beny Surya Wijaay </td>
+          <td> 10 </td>
+          <td> 13 </td>
+        </tr>
+              <tr>
+          <td> Nikko Sukmabuana </td>
+          <td> 10 </td>
+          <td> 14 </td>
+        </tr>
+              <tr>
+          <td> Didik Indiarso </td>
+          <td> 10 </td>
+          <td> 15 </td>
+        </tr>
+              <tr>
+          <td> Paulus Kusnanto </td>
+          <td> 10 </td>
+          <td> 16 </td>
+        </tr>
+              <tr>
+          <td> Saptino Miro </td>
+          <td> 10 </td>
+          <td> 17 </td>
+        </tr>
+              <tr>
+          <td> hary bagijo </td>
+          <td> 10 </td>
+          <td> 18 </td>
+        </tr>
+              <tr>
+          <td> Kusdradjat Soedjadi </td>
+          <td> 10 </td>
+          <td> 19 </td>
+        </tr>
+              <tr>
+          <td> amelia andriani </td>
+          <td> 10 </td>
+          <td> 20 </td>
+        </tr>
+              <tr>
+          <td> Amelia Suko </td>
+          <td> 10 </td>
+          <td> 21 </td>
+        </tr>
+              <tr>
+          <td> Shanro Mayra </td>
+          <td> 10 </td>
+          <td> 22 </td>
+        </tr>
+              <tr>
+          <td> Bimantoko Hadi Sriyono </td>
+          <td> 10 </td>
+          <td> 23 </td>
+        </tr>
+              <tr>
+          <td> Edwin Simatupang </td>
+          <td> 10 </td>
+          <td> 24 </td>
+        </tr>
+              <tr>
+          <td> agung prasetyo </td>
+          <td> 10 </td>
+          <td> 25 </td>
+        </tr>
+              <tr>
+          <td> Soemanto Padmomartono </td>
+          <td> 10 </td>
+          <td> 26 </td>
+        </tr>
+              <tr>
+          <td> Cahyo Prabowo </td>
+          <td> 0 </td>
+          <td> 27 </td>
+        </tr>
+              <tr>
+          <td> dinar yaddin </td>
+          <td> 0 </td>
+          <td> 28 </td>
+        </tr>
+              <tr>
+          <td> Benny Arta </td>
+          <td> 0 </td>
+          <td> 29 </td>
+        </tr>
+                 </tr>
+ 
+         
+      </tbody>
+ 
+ </table>

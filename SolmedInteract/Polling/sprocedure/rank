@@ -1,0 +1,49 @@
+CREATE DEFINER=`dap`@`%` PROCEDURE `Ranks`(mSessionID int)
+BEGIN
+DECLARE mPollID int;
+DECLARE CountQuestion int;
+DECLARE Counter int;
+
+CREATE TEMPORARY TABLE FinalRank
+(
+UserID int,
+TimeStamp varchar(50),
+ChoiceID int,
+CorrectAnswer int,
+PollID int,
+Status int,
+Score int
+);
+
+
+set CountQuestion = (select count(PollID) as count from tmaspoll where SessionID = mSessionID);
+set Counter = 1;
+
+
+WHILE (Counter <= CountQuestion+1) DO
+
+	set @RowNumber = 0;
+	set mPollID = (select PollID from (select  (@RowNumber:=@RowNumber + 1) AS RowNumber,PollID from tmasPoll where SessionID = mSessionID) as q where RowNumber = Counter);
+ 
+    set @RowNumber2 = 0;
+	insert into FinalRank (UserID,TimeStamp,ChoiceID,CorrectAnswer,PollID,Status, Score)
+	SELECT pr.UserID , pr.Timestamp ,pr.ChoiceID as ChoiceID, p.ChoiceID as CorrectAnswer, p.PollID, 
+	case when pr.ChoiceID = p.ChoiceID then 1 else 0 end as Status 
+    ,@RowNumber2:=@RowNumber2+1 AS Score
+    FROM ttrnpollresponse pr 
+	LEFT JOIN tmaspoll p ON pr.PollID = p.PollID 
+    WHERE p.PollID = mPollID order by status desc,Timestamp asc;
+	set Counter = Counter+1;
+
+END WHILE;
+
+select UserID , sum(Score) As Score
+from FinalRank
+GROUP BY userID
+ORDER BY PollID, sum(Score) asc ;
+
+DROP TABLE FinalRank;
+
+
+
+END
